@@ -1,0 +1,219 @@
+﻿
+/*Shared Layout*/
+body {
+    background-image: url('genericmt.jpeg');
+    background-size: cover;
+    font-family: sans-serif;
+    margin: 0 auto;
+}
+
+
+header img {
+    height: 110px;
+}
+
+header {
+    background-color: firebrick;
+}
+/*links*/
+li a {
+    color: #0D118B;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline;
+}
+/*Navigation bar*/
+nav ul {
+    display: flex;
+    background-color: lightgray;
+    list-style-type: none;
+
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+    /*buttons*/
+    nav ul li {
+        background-color: lightgray;
+        list-style: none;
+        border-radius: 5px;
+        margin-left: 20px;
+        padding: 0;
+    }
+
+
+/*hover*/
+li a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+
+
+/*Park Display*/
+
+.home {
+    overflow: auto;
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 5px;
+    width: 60%;
+}
+
+#parkImage {
+    display: inline-block;
+    float: left;
+    width: 25%;
+    height: auto;
+    margin: 5px;
+    border-radius: 25px;
+}
+
+#parkName {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.parkDetail {
+    overflow: auto;
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 25px;
+}
+
+#details {
+    padding: 3px;
+    font-weight: normal;
+}
+
+#parkDescriptionHome {
+    display: block;
+}
+
+#parkDescription {
+    float: left;
+}
+
+.tempSelector {
+    margin: auto;
+    margin-bottom: 25px;
+    width: 25%;
+    padding: 10px;
+    overflow: auto;
+    background-color: white;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.weatherDetail {
+    margin: auto;
+    margin-bottom: 25px;
+    width: 80%;
+    padding: 10px;
+    overflow: auto;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.specWeather {
+    float: left;
+    display: inline-block;
+    width: 20%;
+    height: auto;
+    position: relative;
+}
+
+    .specWeather ul {
+        list-style: none;
+        display: inline-block;
+    }
+
+    .specWeather img {
+        width: 35%;
+        height: auto;
+    }
+
+
+
+
+
+/*save survey page*/
+
+.surveyTitle {
+    text-align: center;
+}
+
+.surveyEncap {
+   
+    overflow: auto;
+    width: 70%;
+    height: auto;
+    margin: auto;
+    margin-top: 5%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.imgEncap {
+    overflow: auto;
+    float: left;
+    display: inline-block;
+    width: 13%;
+    height: auto;
+    margin: .5%;
+}
+
+    .imgEncap img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+.img2Encap {
+    overflow: auto;
+    float: right;
+    display: inline-block;
+    width: 13%;
+    height: auto;
+    margin: .5%;
+}
+
+    .img2Encap img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+.formValidationGroup {
+    text-align: center;
+    margin: auto;
+    padding-bottom: 15px;
+}
+
+.surveyImg {
+    position: center;
+}
+
+
+.surveyForm {
+    display: inline-block;
+    margin: auto;
+    width: 70%;
+    padding-left: 10px;
+}
+
+
+button {
+    margin: auto;
+    display: block;
+    margin-top: 10px;
+}
+
+

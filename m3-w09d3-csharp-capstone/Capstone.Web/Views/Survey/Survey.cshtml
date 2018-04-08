@@ -1,0 +1,67 @@
+﻿@using Capstone.Web.Models;
+
+@model Survey
+@{
+    ViewBag.Title = "Survey";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Survey", "Survey", FormMethod.Post))
+{
+
+    <div class="surveyEncap">
+        <div class="imgEncap">
+            <img src="~/Content/cvnp.jpg" />
+            <img src="~/Content/enp.jpg" />
+            <img src="~/Content/gcnp.jpg" />
+            <img src="~/Content/gnp.jpg" />
+            <img src="~/Content/gsmnp.jpg" />
+        </div>
+
+        <div class="surveyForm">
+            <h2 class="surveyTitle">Please take our survey!</h2>
+            <div class="formValidationGroup">
+                @Html.Label("ParkName", "Favorite Park:  ")
+                @Html.DropDownListFor(m => m.ParkCode, Survey.ParksAvailable)
+                @Html.ValidationMessageFor(m => m.ParkName)
+            </div>
+            <div class="formValidationGroup">
+                @Html.Label("EmailAddress", "Email Address:  ")
+                @Html.TextBoxFor(m => m.EmailAddress)
+                @Html.ValidationMessageFor(m => m.EmailAddress)
+            </div>
+            <div class="formValidationGroup">
+                @Html.Label("State", "State:  ")
+                @Html.DropDownListFor(m => m.State, Survey.StatesAvailable)
+                @Html.ValidationMessageFor(m => m.State)
+            </div>
+            <div class="formValidationGroup">
+                @Html.Label("Activity Level:  ")
+                @Html.RadioButtonFor(m => m.ActivityLevel, "Inactive")
+                @Html.Label("Inactive", "Inactive")
+                @Html.RadioButtonFor(m => m.ActivityLevel, "Sedentary")
+                @Html.Label("Sedentary", "Sedentary")
+                @Html.RadioButtonFor(m => m.ActivityLevel, "Active")
+                @Html.Label("Active", "Active")
+                @Html.RadioButtonFor(m => m.ActivityLevel, "Extremely Active")
+                @Html.Label("Extremely Active", "Extremely Active")
+            </div>
+            <div>
+                <button>SUBMIT!</button>
+            </div>
+        </div>
+
+        <div class="img2Encap">
+            <img src="~/Content/gtnp.jpg" />
+            <img src="~/Content/mrnp.jpg" />
+            <img src="~/Content/rmnp.jpg" />
+            <img src="~/Content/ynp.jpg" />
+            <img src="~/Content/ynp2.jpg" />
+        </div>
+    </div>
+
+}
+
+

@@ -1,0 +1,130 @@
+﻿@using Capstone.Web.Models;
+@model Park
+@{
+    ViewBag.Title = "Park Detail";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    List<Weather> parkWeather = Model.GetWeather();
+
+}
+
+@using (Html.BeginForm("Temp", "Home", FormMethod.Post))
+{
+    <div class="parkDetail">
+
+        <img id="parkImage" src="~/Content/@(Model.ParkCode).jpg" />
+        <div id="parkName">@Model.ParkName, @Model.State <div id="details">@Model.InspirationalQuote -<i>@Model.InspirationalQuoteSource</i></div></div>
+
+        <div id="details"><strong>Founded In:</strong> @Model.YearFounded</div>
+        <div id="details"><strong>Climate: </strong>@Model.Climate</div>
+        <div id="details"><strong>Acreage:</strong> @Model.Acreage</div>
+        <div id="details"><strong>Miles of Trail:</strong> @Model.MilesOfTrail</div>
+        <div id="details"><strong>Total Campsites:</strong> @Model.NumberOfCampsites</div>
+        <div id="details"><strong>Annual Visitor Count:</strong> @Model.AnnualVisitorCount</div>
+        <div id="details"><strong>Entry Fee:</strong> @Model.EntryFee.ToString("C")</div>
+        <div id="details"><strong>Number of Animal Species:</strong> @Model.NumberOfAnimalSpecies</div>
+        <div id="parkDescription">
+            <h3>Description</h3>
+            @Model.ParkDescription
+        </div>
+    </div>
+    <div class="tempSelector">
+        @Html.Label("Temperature Unit", "Temperature Unit: ")
+        @Html.HiddenFor(m => m.ParkCode)
+        @Html.DropDownListFor(m => m.TempType, Weather.TempSet)
+        <button>Change Temperature Unit</button>
+    </div>
+    <div class="weatherDetail">
+        <h2 style="text-align:center">Five Day Weather Forecast</h2>
+        @if (ViewBag.TempUnit == "°F")
+        {
+            foreach (Weather w in parkWeather)
+            {
+                <div class="specWeather">
+                    <ul>
+                        @if (w.FiveDayForecastValue == 1)
+                        {
+                        
+                            <li>
+                                <strong>Today</strong>
+                            </li>
+                            <li>
+                                <img src="~/Content/@w.weatherImage()" />
+                            </li>
+                            <li>
+                                High: @w.High °F
+                            </li>
+                            <li>
+                                Low: @w.Low °F
+                            </li>
+                            <li>
+                                @w.RecAttire()
+                            </li>
+                     
+                        }
+                        else
+                        {
+                            <li>
+                                <img src="~/Content/@w.weatherImage()" />
+                            </li>
+                            <li>
+                                High: @w.High °F
+                            </li>
+                            <li>
+                                Low: @w.Low °F
+                            </li>
+                            <li>
+                                @w.RecAttire()
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        }
+        else if (ViewBag.TempUnit == "°C")
+        {
+            foreach (Weather w in parkWeather)
+            {
+                <div class="specWeather">
+                    <ul>
+                        @if (w.FiveDayForecastValue == 1)
+                        {
+                            <li>
+                                <strong>Today</strong>
+                            </li>
+                            <li>
+                                <img src="~/Content/@w.weatherImage()" />
+                            </li>
+                            <li>
+                                High: @(((double)(w.High / 33.8)).ToString("F2")) °C
+                            </li>
+
+                            <li>
+                                Low: @(((double)(w.Low / 33.8)).ToString("F2")) °C
+                            </li>
+                            <li style="font-weight:bold;">
+                                @w.RecAttire()
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <img src="~/Content/@w.weatherImage()" />
+                            </li>
+                            <li>
+                                High: @(((double)(w.High / 33.8)).ToString("F2")) °C  
+                            </li>
+
+                            <li>
+                                Low: @(((double)(w.Low / 33.8)).ToString("F2")) °C
+                            </li>
+                            <li style="font-weight:bold;">
+                                @w.RecAttire()
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        }
+
+    </div>
+}

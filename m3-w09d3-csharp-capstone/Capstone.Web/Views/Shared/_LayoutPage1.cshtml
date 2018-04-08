@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>National Park Geek - @ViewBag.Title</title>
+    <link href="~/Content/stylesheet.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <header>
+        <img src="~/Content/logo.png" alt="National Park Geek" />
+    </header>
+    <nav>
+        <ul>
+            <li><a href="@Url.Action("Home", "Home")">Home</a></li>
+            <li><a href="@Url.Action("Survey", "Survey")">Survey</a></li>
+        </ul>
+    </nav>
+    <div>
+
+        @RenderBody()
+
+    </div>
+</body>
+</html>
